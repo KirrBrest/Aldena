@@ -1,57 +1,156 @@
-    /* ============================================================
-       Модальное окно формы
-       ============================================================ */
-    .modal-veil{
-        position:fixed;inset:0;z-index:90;
-        background:rgba(25,25,23,.55);backdrop-filter:blur(4px);
-        display:none;align-items:flex-start;justify-content:center;
-        overflow-y:auto;padding:6vh 20px 40px;
+/* ============================================================
+   Модальное окно формы
+   ============================================================ */
+.modal-veil {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(25, 25, 23, 0.55);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 6vh 20px 40px;
+}
+
+.modal-veil.open {
+    display: flex;
+}
+
+.modal-card {
+    background: var(--paper);
+    border-radius: 18px;
+    max-width: 520px;
+    width: 100%;
+    padding: 38px 38px 42px;
+    position: relative;
+    box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 560px) {
+    .modal-card {
+        padding: 30px 22px 34px;
     }
-    .modal-veil.open{display:flex;}
-    .modal-card{
-        background:var(--paper);border-radius:18px;max-width:520px;width:100%;
-        padding:38px 38px 42px;position:relative;
-        box-shadow:0 40px 90px -30px rgba(0,0,0,.5);
-    }
-    @media(max-width:560px){.modal-card{padding:30px 22px 34px;}}
-    .modal-close{
-        position:absolute;top:16px;right:16px;
-        width:38px;height:38px;border-radius:50%;
-        border:1px solid var(--line);background:transparent;cursor:pointer;
-        display:flex;align-items:center;justify-content:center;
-        color:var(--muted);font-size:1rem;line-height:1;
-        transition:border-color .15s,color .15s;
-    }
-    .modal-close:hover{border-color:var(--clay);color:var(--clay-deep);}
-    .modal-card h3{font-size:1.7rem;letter-spacing:-.01em;margin-bottom:8px;}
-    .modal-card .sub{color:var(--muted);font-size:.92rem;margin-bottom:26px;}
-    .field{margin-bottom:16px;}
-    .field label{
-        display:block;font-family:var(--mono);font-size:.7rem;
-        letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
-        margin-bottom:7px;
-    }
-    .field input,.field textarea{
-        width:100%;font-family:var(--sans);font-size:.96rem;color:var(--ink);
-        background:var(--cream);border:1px solid transparent;border-radius:10px;
-        padding:13px 16px;outline:none;
-        transition:border-color .15s,background .15s;
-    }
-    .field input:focus,.field textarea:focus{border-color:var(--clay);background:var(--paper);}
-    .field textarea{resize:vertical;min-height:88px;}
-    .agree{
-        display:flex;gap:10px;align-items:flex-start;
-        font-size:.8rem;color:var(--muted);margin:20px 0 24px;line-height:1.5;
-    }
-    .agree input{margin-top:3px;accent-color:var(--clay);}
-    .modal-card .btn{width:100%;}
-    .form-done{
-        display:none;text-align:center;padding:34px 0 10px;
-    }
-    .form-done .tick{
-        width:56px;height:56px;border-radius:50%;margin:0 auto 20px;
-        background:var(--clay-wash);color:var(--clay-deep);
-        display:flex;align-items:center;justify-content:center;
-    }
-    .form-done h3{margin-bottom:10px;}
-    .form-done p{color:var(--muted);font-size:.93rem;}
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.modal-close:hover {
+    border-color: var(--clay);
+    color: var(--clay-deep);
+}
+
+.modal-card h3 {
+    font-size: 1.7rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+
+.modal-card .sub {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 26px;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 0.96rem;
+    color: var(--ink);
+    background: var(--cream);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 13px 16px;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: var(--clay);
+    background: var(--paper);
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 88px;
+}
+
+.agree {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 20px 0 24px;
+    line-height: 1.5;
+}
+
+.agree input {
+    margin-top: 3px;
+    accent-color: var(--clay);
+}
+
+.modal-card .btn {
+    width: 100%;
+}
+
+.form-done {
+    display: none;
+    text-align: center;
+    padding: 34px 0 10px;
+}
+
+.form-done .tick {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background: var(--clay-wash);
+    color: var(--clay-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-done h3 {
+    margin-bottom: 10px;
+}
+
+.form-done p {
+    color: var(--muted);
+    font-size: 0.93rem;
+}

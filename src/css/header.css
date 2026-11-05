@@ -1,35 +1,41 @@
 /* ============================================================
    Шапка
    ============================================================ */
-.site-header{
+.site-header {
     position: sticky;
     top: 0;
     z-index: 60;
-    background: rgba(250,249,245,.92);
+    background: rgba(250, 249, 245, 0.92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
 }
-.site-header .wrap{
+
+.site-header .wrap {
     display: flex;
     align-items: center;
     gap: 0;
     min-height: 76px;
     flex-wrap: nowrap;
 }
-.logo { 
+
+.logo {
     flex: 0 0 auto;
 }
-.header-cta { 
+
+.header-cta {
     flex: 0 0 auto;
 }
-.burger { 
+
+.burger {
     flex: 0 0 auto;
 }
-.logo img{
+
+.logo img {
     height: 46px;
     width: auto;
 }
-.nav{
+
+.nav {
     display: flex;
     align-items: center;
     flex: 1;
@@ -37,62 +43,71 @@
     gap: 10px;
     min-width: 0;
 }
-.nav-gap{
+
+.nav-gap {
     width: 0;
     padding: 0;
     margin: 0;
 }
-@media(max-width: 960px){
-    .nav-gap{display: none;}
-}
-.nav a{
+
+.nav a {
     color: var(--ink);
-    font-size: .95rem;
+    font-size: 0.95rem;
     font-weight: 450;
     padding: 6px 2px;
     position: relative;
     white-space: nowrap;
 }
-.nav a::after{
+
+.nav a::after {
     content: "";
     position: absolute;
     left: 0;
     right: 100%;
     bottom: 0;
     height: 1.5px;
-    background:var(--clay);
-    transition: right .2s ease;
+    background: var(--clay);
+    transition: right 0.2s ease;
 }
+
 .nav a:hover::after,
-.nav a.is-active::after{
+.nav a.is-active::after {
     right: 0;
 }
-.nav a.is-active{
+
+.nav a.is-active {
     color: var(--clay-deep);
 }
-.header-cta{
+
+.header-cta {
     display: flex;
     align-items: center;
     gap: 18px;
 }
-.header-phone{
+
+.header-phone {
     font-family: var(--mono);
-    font-size: .85rem;
+    font-size: 0.85rem;
     color: var(--ink);
     white-space: nowrap;
 }
-@media(min-width:961px) and (max-width:1080px){
-    .header-phone{display: none;}
-}
-.header-phone:hover{
-    color: var(--clay-deep);
-}
-.btn-header{
-    padding: 11px 22px;
-    font-size: .9rem;
+
+@media (min-width: 961px) and (max-width: 1080px) {
+    .header-phone {
+        display: none;
+    }
 }
 
-.burger{
+.header-phone:hover {
+    color: var(--clay-deep);
+}
+
+.btn-header {
+    padding: 11px 22px;
+    font-size: 0.9rem;
+}
+
+.burger {
     display: none;
     margin-left: auto;
     width: 44px;
@@ -106,30 +121,206 @@
     justify-content: center;
     gap: 5px;
 }
-.burger span{
+
+.burger span {
     width: 18px;
     height: 1.5px;
     background: var(--ink);
-    transition: transform .2s,opacity .2s;
+    transition: transform 0.2s, opacity 0.2s;
 }
-.burger.open span:nth-child(1){
+
+.burger.open span:nth-child(1) {
     transform: translateY(6.5px) rotate(45deg);
 }
-.burger.open span:nth-child(2){
+
+.burger.open span:nth-child(2) {
     opacity: 0;
 }
-.burger.open span:nth-child(3){
+
+.burger.open span:nth-child(3) {
     transform: translateY(-6.5px) rotate(-45deg);
 }
 
-@media(max-width:960px){
-    .nav,.header-cta{
+/* ---------- выпадающие меню ---------- */
+.nav-item {
+    position: relative;
+}
+
+.nav-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.drop-toggle {
+    display: none;
+}
+
+.drop-toggle svg {
+    width: 13px;
+    height: 13px;
+    transition: transform 0.2s ease;
+}
+
+.drop {
+    position: absolute;
+    top: 100%;
+    left: -18px;
+    min-width: 270px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 26px 50px -26px rgba(25, 25, 23, 0.4);
+    padding: 10px;
+    z-index: 70;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+.drop a {
+    display: block;
+    padding: 9px 14px;
+    border-radius: 9px;
+    color: var(--ink);
+    font-size: 0.92rem;
+    white-space: nowrap;
+}
+
+.drop a::after {
+    content: none;
+}
+
+.drop a:hover {
+    background: var(--cream);
+    color: var(--clay-deep);
+}
+
+.drop-wide .drop-cols {
+    column-count: 2;
+    column-gap: 8px;
+}
+
+.drop-wide .drop-cols a {
+    break-inside: avoid;
+}
+
+@media (min-width: 961px) {
+    .nav-item {
+        display: flex;
+        align-items: center;
+        height: 76px;
+    }
+
+    .nav-item:hover .drop,
+    .nav-item:focus-within .drop {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .nav-item:hover .nav-row a::after {
+        right: 0;
+    }
+}
+
+/* ---------- телефоны отделов в шапке ---------- */
+.phone-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.phone-drop {
+    left: auto;
+    right: -12px;
+    min-width: 300px;
+}
+
+.phone-drop a {
+    display: block;
+    padding: 10px 14px;
+}
+
+.phone-drop a span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3px;
+    white-space: normal;
+}
+
+.phone-drop a b {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--ink);
+}
+
+.phone-drop a:hover b {
+    color: var(--clay-deep);
+}
+
+.phone-drop a:first-child span {
+    color: var(--clay);
+}
+
+@media (min-width: 961px) {
+    .phone-item {
+        height: 76px;
+    }
+
+    .phone-item:hover .drop,
+    .phone-item:focus-within .drop {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+@media (min-width: 961px) and (max-width: 1200px) {
+    .drop {
+        left: auto;
+        right: 0;
+    }
+}
+
+/* ---------- доступность: видимый фокус с клавиатуры ---------- */
+.logo:focus-visible,
+.nav a:focus-visible,
+.header-phone:focus-visible,
+.btn-header:focus-visible,
+.burger:focus-visible,
+.drop-toggle:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
+}
+
+.drop a:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: -2px;
+}
+
+/* ---------- мобильная версия (всё в одном блоке) ---------- */
+@media (max-width: 960px) {
+    .nav-gap {
         display: none;
     }
-    .burger{
+
+    .nav,
+    .header-cta {
+        display: none;
+    }
+
+    .burger {
         display: flex;
     }
-    .site-header.menu-open .nav{
+
+    .site-header.menu-open .nav {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -138,103 +329,40 @@
         left: 0;
         right: 0;
         top: 100%;
+        max-height: calc(100vh - 76px);
+        max-height: calc(100dvh - 76px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
         background: var(--paper);
         border-bottom: 1px solid var(--line);
         padding: 18px 28px 24px;
         margin: 0;
     }
-    .site-header.menu-open .nav a{
+
+    .site-header.menu-open .nav a {
         padding: 10px 0;
         font-size: 1.05rem;
         width: 100%;
     }
-    .phone-item{
+
+    .phone-item {
         width: 100%;
     }
-    .phone-item .drop{
+
+    .phone-item .drop {
         display: none;
     }
-}
 
-/* ---------- выпадающие меню ---------- */
-.nav-item{
-    position: relative;
-}
-.nav-row{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-.drop-toggle{
-    display: none;
-}
-.drop-toggle svg{
-    width: 13px;
-    height: 13px;
-    transition: transform .2s ease;
-}
-.drop{
-    position: absolute;
-    top: 100%;
-    left: -18px;
-    min-width: 270px;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    box-shadow: 0 26px 50px -26px rgba(25,25,23,.4);
-    padding: 10px;
-    z-index: 70;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: opacity .18s ease,transform .18s ease,visibility .18s ease;
-}
-.drop a{
-    display: block;
-    padding: 9px 14px;
-    border-radius: 9px;
-    color: var(--ink);
-    font-size: .92rem;
-    white-space: nowrap;
-}
-.drop a::after{
-    content: none;
-}
-.drop a:hover{
-    background: var(--cream);
-    color: var(--clay-deep);
-}
-.drop-wide .drop-cols{
-    column-count: 2;
-    column-gap: 8px;
-}
-.drop-wide .drop-cols a{
-    break-inside: avoid;
-}
-@media(min-width:961px){
-    .nav-item{
-        display: flex;
-        align-items: center;
-        height: 76px;
-    }
-    .nav-item:hover .drop,.nav-item:focus-within .drop{
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-    }
-    .nav-item:hover .nav-row a::after{
-        right: 0;
-    }
-}
-@media(max-width:960px){
-    .nav-item{
+    .nav-item {
         width: 100%;
     }
-    .nav-row{
+
+    .nav-row {
         justify-content: space-between;
         width: 100%;
     }
-    .drop-toggle{
+
+    .drop-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -248,7 +376,8 @@
         flex: 0 0 auto;
         padding: 2px;
     }
-    .drop{
+
+    .drop {
         position: static;
         min-width: 0;
         opacity: 1;
@@ -260,85 +389,37 @@
         padding: 0 0 8px 16px;
         display: none;
     }
-    .nav-item.open .drop{
+
+    .nav-item.open .drop {
         display: block;
     }
-    .nav-item.open .drop-toggle{
+
+    .nav-item.open .drop-toggle {
         border-color: var(--clay);
         color: var(--clay-deep);
     }
-    .nav-item.open .drop-toggle svg{
+
+    .nav-item.open .drop-toggle svg {
         transform: rotate(180deg);
     }
-    .drop-wide .drop-cols{
+
+    .drop-wide .drop-cols {
         column-count: 1;
     }
-    .drop a{
+
+    .drop a {
         white-space: normal;
     }
-    .site-header.menu-open .nav .drop a{
-        font-size: .95rem;
+
+    .site-header.menu-open .nav .drop a {
+        font-size: 0.95rem;
         padding: 8px 0;
         width: 100%;
     }
 }
 
-/* ---------- телефоны отделов в шапке ---------- */
-.phone-item{
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-.phone-drop{
-    left: auto;
-    right: -12px;
-    min-width: 300px;
-}
-.phone-drop a{
-    display: block;
-    padding: 10px 14px;
-}
-.phone-drop a span{
-    display: block;
-    font-family: var(--mono);
-    font-size: .64rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 3px;
-    white-space: normal;
-}
-.phone-drop a b{
-    font-family: var(--mono);
-    font-weight: 500;
-    font-size: .9rem;
-    color: var(--ink);
-}
-.phone-drop a:hover b{
-    color: var(--clay-deep);
-}
-.phone-drop a:first-child span{
-    color: var(--clay);
-}
-@media(min-width:961px){
-    .phone-item{
-        height: 76px;
-    }
-    .phone-item:hover .drop,.phone-item:focus-within .drop{
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-    }
-}
-@media(min-width: 961px) and (max-width: 1200px){
-    .drop{
-        left: auto;
-        right: 0;
-    }
-}
-@media(max-width:420px){
-    .site-header.menu-open .nav{
+@media (max-width: 420px) {
+    .site-header.menu-open .nav {
         padding: 16px 16px 20px;
     }
 }
-

@@ -1,19 +1,19 @@
 /* ============================================================
    Aldena — база (нужно на каждой странице)
    ============================================================ */
-:root{
-    --paper:      #FAF9F5;
-    --cream:      #F0EEE6;
-    --cream-deep: #E8E6DC;
-    --line:       #DEDCD2;
+:root {
+    --paper:      #faf9f5;
+    --cream:      #f0eee6;
+    --cream-deep: #e8e6dc;
+    --line:       #dedcd2;
     --ink:        #191917;
-    --ink-soft:   #40403B;
-    --muted:      #75746C;
-    --clay:       #D97757;
-    --clay-deep:  #C15F3C;
-    --clay-wash:  #F3E3DB;
-    --olive:      #6C8B74;
-    --night:      #1F1E1B;
+    --ink-soft:   #40403b;
+    --muted:      #75746c;
+    --clay:       #d97757;
+    --clay-deep:  #c15f3c;
+    --clay-wash:  #f3e3db;
+    --olive:      #6c8b74;
+    --night:      #1f1e1b;
 
     --serif: Georgia, 'Times New Roman', 'Noto Serif', serif;
     --sans:  'Inter', -apple-system, 'Segoe UI', sans-serif;
@@ -23,15 +23,19 @@
     --maxw: 1180px;
 }
 
-*,*::before,*::after{
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
-body{
+
+body {
     background: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
@@ -41,45 +45,50 @@ body{
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
 }
-img{
+
+img {
     max-width: 100%;
     height: auto;
     display: block;
 }
-a{
+
+a {
     color: var(--clay);
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     color: var(--clay-deep);
 }
 
-.wrap{
+.wrap {
     max-width: var(--maxw);
     margin: 0 auto;
     padding: 0 28px;
 }
-@media(max-width:640px){
-    .wrap{
+
+@media (max-width: 640px) {
+    .wrap {
         padding: 0 20px;
     }
 }
-@media(max-width:420px){
-    .wrap{
+
+@media (max-width: 420px) {
+    .wrap {
         padding: 0 16px;
     }
 }
 
-::selection{
+::selection {
     background: var(--clay-wash);
     color: var(--ink);
 }
 
 /* ---------- типографика ---------- */
-.eyebrow{
+.eyebrow {
     font-family: var(--mono);
-    font-size: .72rem;
-    letter-spacing: .16em;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--clay);
     display: inline-flex;
@@ -87,47 +96,153 @@ a:hover{
     gap: 10px;
     margin-bottom: 20px;
 }
-.eyebrow::before{
+
+.eyebrow::before {
     content: "";
     width: 26px;
     height: 1px;
     background: var(--clay);
 }
-h1,h2,h3{
+
+h1,
+h2,
+h3 {
     font-family: var(--serif);
     font-weight: 400;
     color: var(--ink);
 }
-.display{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.05;letter-spacing:-.02em;}
-.display em{font-style:italic;color:var(--clay);}
-.h2{font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.01em;margin-bottom:22px;}
-.lede{color:var(--ink-soft);font-size:1.12rem;line-height:1.65;max-width:58ch;}
-h1, h2, h3, p, a, span, b, i { overflow-wrap: anywhere; }
+
+.display {
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.display em {
+    font-style: italic;
+    color: var(--clay);
+}
+
+.h2 {
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+}
+
+.lede {
+    color: var(--ink-soft);
+    font-size: 1.12rem;
+    line-height: 1.65;
+    max-width: 58ch;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+span,
+b,
+i {
+    overflow-wrap: anywhere;
+}
 
 /* ---------- кнопки ---------- */
-.btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:10px;
-    font-family:var(--sans);font-weight:500;font-size:.98rem;
-    padding:15px 28px;border-radius:999px;cursor:pointer;
-    border:1px solid transparent;
-    transition:background .18s ease,border-color .18s ease,color .18s ease,transform .12s ease;
-    text-decoration:none;white-space:nowrap;
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.98rem;
+    padding: 15px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.12s ease;
+    text-decoration: none;
+    white-space: nowrap;
 }
-.btn:active{transform:translateY(1px);}
-.btn-clay{background:var(--clay);color:#fff;}
-.btn-clay:hover{background:var(--clay-deep);color:#fff;}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
-.btn-ghost:hover{background:var(--ink);color:var(--paper);}
-.btn-paper{background:var(--paper);color:var(--ink);}
-.btn-paper:hover{background:var(--cream);color:var(--ink);}
-.btn .arr{transition:transform .18s ease;}
-.btn:hover .arr{transform:translateX(3px);}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-clay {
+    background: var(--clay);
+    color: #fff;
+}
+
+.btn-clay:hover {
+    background: var(--clay-deep);
+    color: #fff;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--ink);
+}
+
+.btn-ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.btn-paper {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.btn-paper:hover {
+    background: var(--cream);
+    color: var(--ink);
+}
+
+.btn .arr {
+    transition: transform 0.18s ease;
+}
+
+.btn:hover .arr {
+    transform: translateX(3px);
+}
 
 /* ---------- появление при скролле ---------- */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
-.reveal.in{opacity:1;transform:none;}
-@media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto;}
-    .reveal{opacity:1;transform:none;transition:none;}
-    .pc__pop,.pc__plate,.pc__plate img,.pc__photo,.pc__info,.pc__name,.pc__word{transition:none!important;}
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .pc__pop,
+    .pc__plate,
+    .pc__plate img,
+    .pc__photo,
+    .pc__info,
+    .pc__name,
+    .pc__word {
+        transition: none !important;
+    }
 }
