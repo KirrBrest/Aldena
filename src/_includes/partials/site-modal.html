@@ -1,0 +1,39 @@
+<div class="modal-veil" id="formModal" role="dialog" aria-modal="true" aria-label="Рассчитать стоимость проекта">
+    <div class="modal-card">
+        <button class="modal-close" type="button" data-close-form aria-label="Закрыть">✕</button>
+        <div id="formBody">
+            <h3>Рассчитать стоимость проекта</h3>
+            <p class="sub">Оставьте свои данные — перезвоним и подготовим расчёт за 1 рабочий день.</p>
+            <form id="leadForm" action="javascript:void(0);" method="post">
+                <div class="field">
+                    <label for="f-name">Имя *</label>
+                    <input id="f-name" type="text" name="field_0" placeholder="Как к вам обращаться" required>
+                </div>
+                <div class="field">
+                    <label for="f-phone">Телефон *</label>
+                    <input id="f-phone" type="tel" name="field_2" placeholder="+375 (__) ___-__-__" required>
+                </div>
+                <div class="field">
+                    <label for="f-email">E-mail</label>
+                    <input id="f-email" type="email" name="field_1" placeholder="name@example.com">
+                </div>
+                <div class="field">
+                    <label for="f-msg">Сообщение</label>
+                    <textarea id="f-msg" name="field_4" placeholder="Опишите ваш проект или объект…"></textarea>
+                </div>
+                <label class="agree">
+                    <input type="checkbox" required>
+                    <span>Согласие на обработку персональных данных</span>
+                </label>
+                <button class="btn btn-clay" type="submit">Отправить заявку <span class="arr">→</span></button>
+            </form>
+        </div>
+        <div class="form-done" id="formDone">
+            <div class="tick">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            </div>
+            <h3>Заявка отправлена</h3>
+            <p>Спасибо! Менеджер свяжется с вами в ближайшее рабочее время.</p>
+        </div>
+    </div>
+</div>

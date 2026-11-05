@@ -1,0 +1,54 @@
+<header class="site-header" id="siteHeader">
+	<div class="wrap">
+		<a class="logo" href="/index.html"><img src="/images/logo.png" alt="Aldena"></a>
+
+		<nav class="nav" id="siteNav">
+			<i class="nav-gap" aria-hidden="true"></i>
+
+			{% for item in navigation %}
+				{% if item.children %}
+					<div class="nav-item">
+						<div class="nav-row">
+							<a href="/{{ item.url }}">{{ item.title }}</a>
+							<button class="drop-toggle" type="button" aria-label="Подменю «{{ item.title }}»">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+							</button>
+						</div>
+						<div class="drop{% if item.wide %} drop-wide{% endif %}">
+							{% if item.wide %}
+								<div class="drop-cols">
+							{% endif %}
+							{% for child in item.children %}
+								<a href="/{{ child.url }}">{{ child.title }}</a>
+							{% endfor %}
+							{% if item.wide %}
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% else %}
+					<a href="/{{ item.url }}">{{ item.title }}</a>
+				{% endif %}
+			{% endfor %}
+
+			<div class="phone-item">
+				<a class="header-phone" href="tel:{{ phones[0].tel }}">{{ phones[0].display }}</a>
+				<div class="drop phone-drop">
+					{% for phone in phones %}
+						<a href="tel:{{ phone.tel }}">
+							<span>{{ phone.label }}</span><b>{{ phone.display }}</b>
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</nav>
+
+		<div class="header-cta">
+			<a class="btn btn-clay btn-header" href="#" data-open-form>Рассчитать стоимость</a>
+		</div>
+
+		<button class="burger" id="burger" aria-label="Меню">
+			<span></span><span></span><span></span>
+		</button>
+	</div>
+</header>
