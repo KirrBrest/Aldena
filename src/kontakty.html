@@ -44,7 +44,7 @@ modal:
             <div class="dept reveal">
                 <span class="dept-tag">{{ phone.tag }}</span>
                 <b>{{ phone.dept }}</b>
-                <span class="dept-person">{{ phone.about }}</span>
+                <span class="dept-person">{{ phone.person }} — {{ phone.duties }}</span>
                 <a class="dept-phone" href="tel:{{ phone.tel }}">{{ phone.display }}</a>
             </div>
             {% endfor %}
@@ -61,7 +61,7 @@ modal:
                     <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
                     <div>
                         <span class="info-label">Адрес</span>
-                        <p>{{ site.address.zip }}, {{ site.address.country }},<br>{{ site.address.line }}</p>
+                        <p>{{ site.address.zip }}, {{ site.address.country }},<br>г. {{ site.address.city }}, {{ site.address.street }}, д. {{ site.address.house }}, {{ site.address.office }}</p>
                     </div>
                 </div>
                 <div class="info-row">

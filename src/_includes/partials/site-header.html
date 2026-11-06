@@ -1,6 +1,6 @@
 <header class="site-header" id="siteHeader">
 	<div class="wrap">
-		<a class="logo" href="/index.html"><img src="/images/logo.png" alt="Aldena"></a>
+		<a class="logo" href="/index.html"><img src="/images/logo.png" alt="{{ site.name }}"></a>
 
 		<nav class="nav" id="siteNav">
 			<i class="nav-gap" aria-hidden="true"></i>
@@ -36,7 +36,7 @@
 				<div class="drop phone-drop">
 					{% for phone in phones %}
 						<a href="tel:{{ phone.tel }}">
-							<span>{{ phone.label }}</span><b>{{ phone.display }}</b>
+							<span>{{ phone.dept }} ({{ phone.person }})</span><b>{{ phone.display }}</b>
 						</a>
 					{% endfor %}
 				</div>

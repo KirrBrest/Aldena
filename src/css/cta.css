@@ -3,7 +3,7 @@
    ============================================================ */
 .cta {
     background: var(--night);
-    color: #f5f3ec;
+    color: var(--cream);
     padding: 96px 0;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .cta h2 {
-    color: #faf9f5;
+    color: var(--paper);
     font-size: clamp(2rem, 4.4vw, 3.2rem);
     line-height: 1.1;
     letter-spacing: -0.015em;
@@ -20,7 +20,7 @@
 }
 
 .cta p {
-    color: #b9b7ae;
+    color: color-mix(in srgb, var(--paper) 70%, transparent);
     margin-top: 18px;
     max-width: 52ch;
     font-size: 1.02rem;
@@ -53,6 +53,6 @@
 .cta-phone-note {
     font-family: var(--mono);
     font-size: 0.78rem;
-    color: #8f8d84;
+    color: color-mix(in srgb, var(--paper) 50%, transparent);
     text-align: center;
 }

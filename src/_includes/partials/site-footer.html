@@ -2,46 +2,27 @@
     <div class="wrap">
         <div class="footer-grid">
             <div>
-                <a class="footer-logo" href="/index.html"><img src="/images/logo.png" alt="Aldena"></a>
+                <a class="footer-logo" href="/index.html"><img src="/images/logo.png" alt="{{ site.name }}"></a>
                 <p class="footer-about">
-                    г. Брест, ул. Л-та Рябцева 124, каб. 38<br>
-                    Пн–Пт: 08:30–17:00, Сб–Вс: выходной<br>
-                    <a href="mailto:sale@aldena.by">sale@aldena.by</a><br>
-                    <a href="tel:+375295920055">+375 (29) 592-00-55</a>
+                    г. {{ site.address.city }}, {{ site.address.street }} {{ site.address.house }}, {{ site.address.office }}<br>
+                    {{ site.hours.days }}: {{ site.hours.time }}, {{ site.hours.off }}<br>
+                    <a href="mailto:{{ site.emails[0].address }}">{{ site.emails[0].address }}</a><br>
+                    <a href="tel:{{ phones[0].tel }}">{{ phones[0].display }}</a>
                 </p>
             </div>
+            {% for column in footerColumns %}
             <div>
-                <h4>Производство</h4>
+                <h4>{{ column.title }}</h4>
                 <ul>
-                    <li><a href="/Металлоконструкции.html">Металлоконструкции</a></li>
-                    <li><a href="/Изделия из нержавеющей стали.html">Изделия из нержавеющей стали</a></li>
-                    <li><a href="/Архитектурные стеклянные конструкции.html">Стеклянные конструкции</a></li>
-                    <li><a href="/Быстровозводимые здания.html">Быстровозводимые здания</a></li>
-                    <li><a href="/Строительство под ключ.html">Строительство под ключ</a></li>
+                    {% for link in column.links %}
+                    <li><a href="/{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
-            <div>
-                <h4>Компания</h4>
-                <ul>
-                    <li><a href="/О компании.html">О компании</a></li>
-                    <li><a href="/Сертификаты.html">Сертификаты</a></li>
-                    <li><a href="/Портфолио.html">Портфолио</a></li>
-                    <li><a href="/Производственные мощности.html">Производственные мощности</a></li>
-                    <li><a href="/Реквизиты.html">Реквизиты</a></li>
-                    <li><a href="/Карьера.html">Карьера</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Разделы</h4>
-                <ul>
-                    <li><a href="/Готовые решения.html">Готовые решения</a></li>
-                    <li><a href="/Услуги.html">Услуги</a></li>
-                    <li><a href="/Производство.html">Производство</a></li>
-                </ul>
-            </div>
+            {% endfor %}
         </div>
         <div class="footer-bottom">
-            <span>© 2026 Aldena. Использование материалов сайта только с разрешения правообладателя</span>
+            <span>© 2026 {{ site.name }}. Использование материалов сайта только с разрешения правообладателя</span>
             <a href="#">Разработка сайта Extrit</a>
         </div>
     </div>

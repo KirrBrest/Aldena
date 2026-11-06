@@ -28,7 +28,7 @@ pageCss: ['home.css']
                 <video id="promoVideo" autoplay loop muted playsinline>
                     <source src="/images/video/video4.mp4" type="video/mp4">
                 </video>
-                <div class="hero-video-chip">Производственная площадка · Брест, ул. Л-та Рябцева 124</div>
+                <div class="hero-video-chip">Производственная площадка · {{ site.address.city }}, {{ site.address.street }} {{ site.address.house }}</div>
                 <button class="hero-video-mute" id="muteBtn" type="button" aria-label="Включить звук">
                     <svg id="muteIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
                 </button>
@@ -379,8 +379,8 @@ pageCss: ['home.css']
         </div>
         <div class="cta-actions reveal">
             <a href="#" class="btn btn-clay" data-open-form>Рассчитать стоимость проекта <span class="arr">→</span></a>
-            <a href="tel:+375295920055" class="btn btn-paper">+375 (29) 592-00-55</a>
-            <div class="cta-phone-note">Отдел продаж · Пн–Пт 08:30–17:00</div>
+            <a href="tel:{{ phones[0].tel }}" class="btn btn-paper">{{ phones[0].display }}</a>
+            <div class="cta-phone-note">{{ phones[0].dept }} · {{ site.hours.days }} {{ site.hours.time }}</div>
         </div>
     </div>
 </section>

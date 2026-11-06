@@ -176,12 +176,12 @@ i {
 
 .btn-clay {
     background: var(--clay);
-    color: #fff;
+    color: var(--paper);
 }
 
 .btn-clay:hover {
     background: var(--clay-deep);
-    color: #fff;
+    color: var(--paper);
 }
 
 .btn-ghost {
