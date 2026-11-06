@@ -12,13 +12,21 @@
         <link href="/css/header.css" rel="stylesheet">
         <link href="/css/footer.css" rel="stylesheet">
         <link href="/css/modal.css" rel="stylesheet">
+        <link href="/css/sections.css" rel="stylesheet">
+        <link href="/css/hero.css" rel="stylesheet">
+        <link href="/css/cta.css" rel="stylesheet">
         {% for css in pageCss or [] %}
         <link href="/css/{{ css }}" rel="stylesheet">
         {% endfor %}
     </head>
     <body>
         {% include "partials/site-header.html" %}
-        <main tabindex="-1" id="main-content">{{ content | safe }}</main>
+        <main tabindex="-1" id="main-content">
+            {% if breadcrumbs %}
+            {% include "partials/crumbs.html" %}
+            {% endif %}
+            {{ content | safe }}
+        </main>
         {% include "partials/site-footer.html" %}
         {% include "partials/site-modal.html" %}
         <script src="/js/site.js" defer></script>

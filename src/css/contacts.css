@@ -1,0 +1,185 @@
+/* ============================================================
+   Страница «Контакты»
+   ============================================================ */
+
+/* ---------- карточки отделов ---------- */
+.dept-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+@media (max-width: 960px) {
+    .dept-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .dept-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dept {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dept:hover {
+    transform: translateY(-4px);
+    border-color: var(--clay);
+    box-shadow: 0 22px 40px -30px rgba(25, 25, 23, 0.35);
+}
+
+.dept .dept-tag {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+}
+
+.dept b {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+.dept .dept-person {
+    font-size: 0.88rem;
+    color: var(--muted);
+    flex: 1;
+}
+
+.dept a.dept-phone {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dept a.dept-phone:hover {
+    color: var(--clay-deep);
+}
+
+/* ---------- адрес и реквизиты ---------- */
+.two-col {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: 48px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+.info-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px 34px 36px;
+}
+
+@media (max-width: 640px) {
+    .info-card {
+        padding: 24px 22px 28px;
+    }
+}
+
+.info-card h3 {
+    font-size: 1.45rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 13px 0;
+    border-top: 1px solid var(--line);
+}
+
+.info-row:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.info-row .ico {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+    border-radius: 10px;
+    background: var(--clay-wash);
+    color: var(--clay-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-row .ico svg {
+    width: 18px;
+    height: 18px;
+}
+
+.info-row .info-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3px;
+}
+
+.info-row p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+}
+
+.info-row a {
+    color: var(--ink);
+}
+
+.info-row a:hover {
+    color: var(--clay-deep);
+}
+
+.info-card .btn {
+    margin-top: 22px;
+}
+
+.info-card-note {
+    margin-top: 16px;
+    font-size: 0.92rem;
+    color: var(--muted);
+}
+
+.req-line {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+}
+
+.req-line b {
+    font-family: var(--mono);
+    font-weight: 500;
+    color: var(--ink);
+}

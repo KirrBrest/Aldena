@@ -1,0 +1,58 @@
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta {
+    background: var(--night);
+    color: #f5f3ec;
+    padding: 96px 0;
+}
+
+.cta .eyebrow {
+    color: var(--clay);
+}
+
+.cta h2 {
+    color: #faf9f5;
+    font-size: clamp(2rem, 4.4vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    max-width: 22ch;
+}
+
+.cta p {
+    color: #b9b7ae;
+    margin-top: 18px;
+    max-width: 52ch;
+    font-size: 1.02rem;
+}
+
+.cta-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 48px;
+    align-items: center;
+}
+
+@media (max-width: 860px) {
+    .cta-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: stretch;
+}
+
+.cta-actions .btn {
+    width: 100%;
+}
+
+.cta-phone-note {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: #8f8d84;
+    text-align: center;
+}

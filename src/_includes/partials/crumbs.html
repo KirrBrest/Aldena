@@ -1,0 +1,13 @@
+<div class="wrap">
+    <nav class="crumbs" aria-label="Хлебные крошки">
+        <a href="/index.html">Главная</a>
+        {% for crumb in breadcrumbs %}
+            <span class="sep">/</span>
+            {% if crumb.url %}
+                <a href="{{ crumb.url }}">{{ crumb.title }}</a>
+            {% else %}
+                <span class="here">{{ crumb.title }}</span>
+            {% endif %}
+        {% endfor %}
+    </nav>
+</div>

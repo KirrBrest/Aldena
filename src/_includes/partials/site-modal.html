@@ -1,9 +1,9 @@
-<div class="modal-veil" id="formModal" role="dialog" aria-modal="true" aria-label="Рассчитать стоимость проекта">
+<div class="modal-veil" id="formModal" role="dialog" aria-modal="true" aria-label="{{ modal.title or modalDefaults.title }}">
     <div class="modal-card">
         <button class="modal-close" type="button" data-close-form aria-label="Закрыть">✕</button>
         <div id="formBody">
-            <h3>Рассчитать стоимость проекта</h3>
-            <p class="sub">Оставьте свои данные — перезвоним и подготовим расчёт за 1 рабочий день.</p>
+            <h3>{{ modal.title or modalDefaults.title }}</h3>
+            <p class="sub">{{ modal.sub or modalDefaults.sub }}</p>
             <form id="leadForm" action="javascript:void(0);" method="post">
                 <div class="field">
                     <label for="f-name">Имя *</label>
@@ -19,21 +19,21 @@
                 </div>
                 <div class="field">
                     <label for="f-msg">Сообщение</label>
-                    <textarea id="f-msg" name="field_4" placeholder="Опишите ваш проект или объект…"></textarea>
+                    <textarea id="f-msg" name="field_4" placeholder="{{ modal.messagePlaceholder or modalDefaults.messagePlaceholder }}"></textarea>
                 </div>
                 <label class="agree">
                     <input type="checkbox" required>
                     <span>Согласие на обработку персональных данных</span>
                 </label>
-                <button class="btn btn-clay" type="submit">Отправить заявку <span class="arr">→</span></button>
+                <button class="btn btn-clay" type="submit">{{ modal.submitLabel or modalDefaults.submitLabel }} <span class="arr">→</span></button>
             </form>
         </div>
         <div class="form-done" id="formDone">
             <div class="tick">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
             </div>
-            <h3>Заявка отправлена</h3>
-            <p>Спасибо! Менеджер свяжется с вами в ближайшее рабочее время.</p>
+            <h3>{{ modal.doneTitle or modalDefaults.doneTitle }}</h3>
+            <p>{{ modal.doneText or modalDefaults.doneText }}</p>
         </div>
     </div>
 </div>

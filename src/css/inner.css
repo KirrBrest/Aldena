@@ -1,0 +1,37 @@
+/* ============================================================
+   Внутренние страницы: общие элементы
+   ============================================================ */
+
+/* ---------- хлебные крошки ---------- */
+.crumbs {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    padding: 26px 0 0;
+}
+
+.crumbs a {
+    color: var(--muted);
+}
+
+.crumbs a:hover {
+    color: var(--clay-deep);
+}
+
+.crumbs .sep {
+    color: var(--line);
+}
+
+.crumbs .here {
+    color: var(--ink);
+}
+
+/* ---------- hero внутренней страницы ---------- */
+.page-hero {
+    padding: 44px 0 56px;
+}

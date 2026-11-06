@@ -1,0 +1,56 @@
+/* ============================================================
+   Общие секции
+   ============================================================ */
+.section {
+    padding: 96px 0;
+}
+
+@media (max-width: 760px) {
+    .section {
+        padding: 56px 0;
+    }
+}
+
+.section-cream {
+    background: var(--cream);
+}
+
+.section-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 52px;
+}
+
+.section-head .h2 {
+    margin-bottom: 0;
+    max-width: 24ch;
+}
+
+.section-head .sub {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    max-width: 44ch;
+}
+
+.section-more {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.section-more:hover {
+    color: var(--clay-deep);
+    border-color: var(--clay);
+}
